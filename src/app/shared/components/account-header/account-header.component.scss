@@ -1,0 +1,33 @@
+@use "variables" as vars;
+@use "mixins" as mix;
+
+.header {
+  @include mix.flex-container(row, space-between, center);
+  height: 95px;
+  padding-inline: clamp(24px, 8vw, 130px);
+  background-color: vars.$color-bg;
+  border-bottom: 1px solid #313b54;
+  font-family: vars.$font-family-title;
+
+  font-size: 1.5rem;
+  color: vars.$color-text;
+
+  &__right {
+    @include mix.flex-container(row, flex-end, center);
+    column-gap: 10px;
+  }
+
+  &__search {
+    height: 48px;
+    width: 480px;
+    padding-left: 16px;
+    font-size: 1rem;
+    border-radius: 25px;
+    border: 1px solid transparent;
+    background: vars.$color-table-row;
+  }
+
+  &__avatar {
+    @include mix.avatar(48px, 48px, 1.25rem);
+  }
+}

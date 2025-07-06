@@ -1,0 +1,50 @@
+@use "variables" as vars;
+@use "mixins" as mix;
+@use "buttons" as btn;
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  
+}
+
+.market-intelligence{
+  @include mix.flex-container(column, flex-start);
+  height: 100%;
+  row-gap: 12px;
+  
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$widgets-border-radius;
+  background-color: vars.$color-widget-primary;
+
+  padding: vars.$widgets-padding;
+}
+
+.record{
+  @include mix.flex-container(row);
+  padding-block: 8px;
+  border-bottom: 1px solid #293245;
+  
+  &__indicator{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-right: 8px;
+    flex-shrink: 0;
+
+    &.red {
+      background-color: #B93B3B; 
+    }
+
+    &.yellow {
+      background-color: #FDD261; 
+    }
+
+    &.blue {
+      background-color: #1E40AF; 
+    }
+
+  }
+}

@@ -1,0 +1,65 @@
+<div class="account-details">
+  <div class="sidebar-tablist">
+    <div
+      *ngFor="let group of tabGroups"
+      class="tab-group"
+      [class.open]="openedGroup === group.key"
+    >
+      <button
+        class="tab-group__button"
+        (click)="toggleGroup(group.key)"
+        [class.active]="isChildActive(group.children)"
+      >
+        <span class="tab-group__button-text">{{ group.label }}</span>
+        <span
+          class="number-of-tabs"
+          [class.with-border]="openedGroup === group.key"
+          >{{ group.children.length }}</span
+        >
+      </button>
+
+      <div class="dropdown" *ngIf="openedGroup === group.key">
+        <button
+          class="tab"
+          *ngFor="let child of group.children"
+          (click)="selectTab(child.key)"
+          [class.active]="activeTab === child.key"
+        >
+          {{ child.label }}
+        </button>
+      </div>
+    </div>
+  </div>
+  <svg width="2" height="967" viewBox="0 0 1 967" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.5 0.5V966.5" stroke="#8A8B98" stroke-linecap="round" stroke-dasharray="4 4"/>
+</svg>
+  <ng-container [ngSwitch]="activeTab">
+    <div *ngSwitchCase="'winnability'" class="tab-content winnability">
+      <h3 class="winnability__title">Winnability</h3>
+      <div class="winnability__grid-container">
+        <div class="grid-item overall-score">
+          <app-overall-score></app-overall-score>
+        </div>
+        <div class="grid-item historical-trend">
+          <app-historical-trend></app-historical-trend>
+        </div>
+        <div class="grid-item position">
+          <app-position></app-position>
+        </div>
+        <div class="grid-item winnability-row">
+          <div class="grid-item increasing-winnability">
+            <app-increasing-winnability></app-increasing-winnability>
+          </div>
+          <div class="grid-item decreasing-winnability">
+            <app-decreasing-winnability></app-decreasing-winnability>
+          </div>
+        </div>
+        
+        <div class="grid-item ai-powered-recommendations">
+          <app-ai-powered-recommendations></app-ai-powered-recommendations>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  
+</div>

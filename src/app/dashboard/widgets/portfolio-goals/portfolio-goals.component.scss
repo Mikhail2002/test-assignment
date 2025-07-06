@@ -1,0 +1,303 @@
+@use "variables" as vars;
+@use "mixins" as mix;
+@use "buttons" as btn;
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.portfolio-goals{
+  @include mix.flex-container(column, flex-start);
+  height: 100%;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$widgets-border-radius;
+  background-color: vars.$color-widget-primary;
+
+  padding: vars.$widgets-padding;
+  row-gap: 30px;
+
+  h3 {
+    color: vars.$color-text-secondary;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-family: vars.$font-family-title;
+  }
+}
+
+.loss-ratio{
+  @include mix.flex-container(column);
+  row-gap: 30px;
+  margin-bottom: 25px;
+  color: vars.$color-text-secondary;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+
+  &__bar-container{
+    position: relative;
+    width: 100%;
+  }
+
+  &__bar{
+    @include mix.flex-container(row);
+    height: 25px;
+    width: 100%;
+    border-radius: btn.$button-border-radius;
+    overflow: hidden;
+    background-color: vars.$color-text-secondary;
+  }
+
+  &__bar-segment{
+    height: 100%;
+
+    &--green{
+      background-color: #3BB979;
+    }
+
+    &--yellow{
+      background-color: #FDD261;
+    }
+
+    &--red{
+      background-color: #CC0101;
+    }
+  }
+
+  &__marker-tg{
+    position: absolute;
+    bottom: 110%; 
+    transform: translateX(-50%);
+    @include mix.flex-container(column, flex-start, center);
+    
+  }
+
+  &__marker-tg-label{
+    opacity: 50%;
+  }
+
+  &__marker-current{
+    position: absolute;
+    top: 20%;
+    transform: translateX(-50%);
+    @include mix.flex-container(column, flex-start, center);
+  }
+
+  &__marker-current-percent{
+    font-family: vars.$font-family-base;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: vars.$color-text;
+  }
+
+  &__marker-current-label{
+    color: #3BB979;
+    font-size: 10px;
+  }
+}
+
+.renewal-retention{
+  @include mix.flex-container(column);
+  row-gap: 30px;
+  margin-bottom: 25px;
+  color: vars.$color-text-secondary;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+
+  &__bar-container{
+    position: relative;
+    width: 100%;
+  }
+
+  &__bar{
+    @include mix.flex-container(row);
+    height: 25px;
+    width: 100%;
+    border-radius: btn.$button-border-radius;
+    overflow: hidden;
+    background-color: vars.$color-text-secondary;
+  }
+
+  &__bar-segment{
+    height: 100%;
+
+    &--green{
+      background-color: #3BB979;
+    }
+
+    &--yellow{
+      background-color: #FDD261;
+    }
+
+    &--red{
+      background-color: #CC0101;
+    }
+  }
+
+  &__marker-tg{
+    position: absolute;
+    bottom: 110%; 
+    transform: translateX(-50%);
+    @include mix.flex-container(column, flex-start, center);
+    
+  }
+
+  &__marker-tg-label{
+    opacity: 50%;
+  }
+
+  &__marker-current{
+    position: absolute;
+    top: 20%;
+    transform: translateX(-50%);
+    @include mix.flex-container(column, flex-start, center);
+  }
+
+  &__marker-current-percent{
+    font-family: vars.$font-family-base;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: vars.$color-text;
+  }
+
+  &__marker-current-label{
+    font-size: 10px;
+    color: #3BB979;
+  }
+}
+
+.business-target{
+  @include mix.flex-container(column);
+  row-gap: 2px;
+  
+  margin-bottom: 25px;
+  color: vars.$color-text-secondary;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+
+  &__bar-wrapper{
+    @include mix.flex-container(row);
+    column-gap: 5px;
+  }
+
+  &__goal{
+    @include mix.flex-container(row, flex-start, center);
+    margin-top: 3px;
+    color: vars.$color-text;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: vars.$font-family-special;
+  }
+
+  &__bar-container{
+    position: relative;
+    width: 80%;
+  }
+
+  &__bar{
+    @include mix.flex-container(row);
+    height: 25px;
+    width: 100%;
+    border-top-right-radius: btn.$button-border-radius;
+    border-bottom-right-radius: btn.$button-border-radius;
+    overflow: hidden;
+    background-color: #313853;
+  }
+
+  &__bar-filling{
+    background: linear-gradient(to left, #3B82F6FF 0%, #3B82F600 100%);
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
+
+  &__marker{
+    position: absolute;
+    top: 25%; 
+    transform: translateX(-50%);
+    @include mix.flex-container(column, flex-start, center);
+  }
+
+  &__marker-label{
+    color: #FFF;
+    margin-right: 40px;
+    margin-bottom: 7px;
+    font-family: vars.$font-family-special;
+  }
+
+  &__marker-percent{
+    opacity: 50%;
+    font-size: 11px;
+    margin-right: 10px;
+  }
+
+  
+}
+
+.gwp-target{
+  @include mix.flex-container(column);
+  row-gap: 2px;
+  
+  margin-bottom: 25px;
+  color: vars.$color-text-secondary;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+
+  &__bar-wrapper{
+    @include mix.flex-container(row);
+    column-gap: 5px;
+  }
+
+  &__goal{
+    @include mix.flex-container(row, flex-start, center);
+    margin-top: 3px;
+    color: vars.$color-text;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: vars.$font-family-special;
+  }
+
+  &__bar-container{
+    position: relative;
+    width: 80%;
+  }
+
+  &__bar{
+    @include mix.flex-container(row);
+    height: 25px;
+    width: 100%;
+    border-top-right-radius: btn.$button-border-radius;
+    border-bottom-right-radius: btn.$button-border-radius;
+    overflow: hidden;
+    background-color: #313853;
+  }
+
+  &__bar-filling{
+    background: linear-gradient(to left, #3B82F6FF 0%, #3B82F600 100%);
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
+
+  &__marker{
+    position: absolute;
+    top: 25%; 
+    transform: translateX(-50%);
+    @include mix.flex-container(column, flex-start, center);
+  }
+
+  &__marker-label{
+    color: #FFF;
+    margin-right: 40px;
+    margin-bottom: 7px;
+    font-family: vars.$font-family-special;
+  }
+
+  &__marker-percent{
+    opacity: 50%;
+    font-size: 11px;
+    margin-right: 10px;
+  }
+  
+}
+

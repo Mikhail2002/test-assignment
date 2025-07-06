@@ -1,0 +1,9 @@
+<div class="market-intelligence">
+  <h2 class="market-intelligence__title">Market intelligence</h2>
+  <div class="market-intelligence__records-container">
+    <div class="record" *ngFor="let record of records | slice:0:3">
+      <div class="record__indicator" [ngClass]="record.indicator"></div>
+      <p class="record__text">{{record.text}}</p>
+    </div>
+  </div>
+</div>

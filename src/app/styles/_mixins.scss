@@ -1,0 +1,32 @@
+@use "variables" as vars;
+
+@mixin flex-container($direction: row, $justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin grid-container(
+  $columns: 3,
+  $column-gap: 20px,
+  $row-gap: 20px,
+  $column-width: 1fr
+) {
+  display: grid;
+  grid-template-columns: repeat($columns, $column-width);
+  column-gap: $column-gap;
+  row-gap: $row-gap;
+}
+
+@mixin avatar($height: 32px, $width: 32px, $font-size: 1rem) {
+  height: $height;
+  width: $width;
+  border-radius: 50%;
+  background: linear-gradient(to bottom left, #1e40afff 0%, #1e40af4d 100%);
+  color: vars.$color-white;
+  font-size: $font-size;
+  text-transform: uppercase;
+  user-select: none;
+  @include flex-container(row, center, center);
+}

@@ -5,6 +5,9 @@ import { WorkQueueComponent } from './widgets/work-queue/work-queue.component';
 import { PortfolioGoalsComponent } from './widgets/portfolio-goals/portfolio-goals.component';
 import { QuickActionsComponent } from './widgets/quick-actions/quick-actions.component';
 import { MyAccountsComponent } from './widgets/my-accounts/my-accounts.component';
+import { SharedModule } from '../shared/shared.module';
+import { StatusClassPipe } from '../shared/pipes/status-class.pipe';
+import { MarketIntelligenceComponent } from './widgets/market-intelligence/market-intelligence.component';
 
 
 
@@ -14,10 +17,13 @@ import { MyAccountsComponent } from './widgets/my-accounts/my-accounts.component
     WorkQueueComponent,
     PortfolioGoalsComponent,
     QuickActionsComponent,
-    MyAccountsComponent
+    MyAccountsComponent,
+    
+    MarketIntelligenceComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
   ]
 })
 export class DashboardModule { }

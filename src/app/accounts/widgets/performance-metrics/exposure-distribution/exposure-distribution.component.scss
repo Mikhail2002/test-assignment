@@ -1,0 +1,72 @@
+@use "variables" as vars;
+@use "mixins" as mix;
+@use "buttons" as btn;
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.exposure-distribution{
+  @include mix.flex-container(column, flex-start);
+  height: max-content;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$widgets-border-radius;
+  background-color: vars.$color-widget-primary;
+
+  padding: vars.$widgets-padding;
+  padding-right: 15px;
+  row-gap: 10px;
+
+  &__header{
+    @include mix.flex-container(row, flex-start, center);
+    column-gap: 15px;
+    margin-top: 10px;
+  }
+
+  &__title{
+    font-size: 24px;
+  }
+
+  &__values{
+    @include mix.flex-container(column);
+    row-gap: 15px;
+  }
+}
+
+.bar{
+  @include mix.flex-container(row);
+  height: 22px;
+  width: 54%;
+  border-top-right-radius: btn.$button-border-radius;
+  border-bottom-right-radius: btn.$button-border-radius;
+  overflow: hidden;
+  background-color: #313853;
+}
+
+.bar-filling{
+  background: linear-gradient(to left, #3B82F6FF 0%, #3B82F600 100%);
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.value{
+  font-size: 18px;
+}
+
+.marine-cargo{
+  @include mix.flex-container(row, flex-start, center);
+  column-gap: 15px;
+}
+
+.general-liability{
+  @include mix.flex-container(row, flex-start, center);
+  column-gap: 15px;
+}
+
+.workers-comp{
+  @include mix.flex-container(row, flex-start, center);
+  column-gap: 15px;
+}
+

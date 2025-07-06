@@ -1,0 +1,68 @@
+@use "variables" as vars;
+@use "mixins" as mix;
+@use "buttons" as btn;
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.ai-powered-recommendations{
+  @include mix.flex-container(column, flex-start);
+  height: 100%;
+  border: none;
+  border-radius: vars.$widgets-border-radius;
+
+  background-color: vars.$color-widget-secondary;
+  padding: vars.$widgets-padding;
+  padding-inline: 30px;
+  padding-top: 25px;
+  row-gap: 30px;
+
+  .title{
+    @include mix.flex-container(row, flex-start, center);
+    font-size: 24px;
+    column-gap: 10px;
+    color: vars.$color-green;
+  }
+
+  .values{
+    @include mix.flex-container(column);
+    row-gap: 23px;
+  }
+}
+
+.content{
+  @include mix.flex-container(column);
+  row-gap: 25px;
+}
+
+.recommendation{
+  @include mix.flex-container(row, space-between, center);
+  &__text{
+    @include mix.flex-container(column);
+    row-gap: 5px;
+    font-size: 18px;
+    width: 74%;
+    line-height: 1.3;
+  }
+
+  &__title{
+    font-size: 18px;
+  }
+
+  &__body{
+    color: vars.$color-text-subtext;
+  }
+
+  &__apply-btn{
+    width: max-content;
+    height: max-content;
+    font-size: 18px;
+    @include btn.btn-primary(17px 65px);
+    border-radius: 50px;
+    background-color: vars.$color-green;
+    color: vars.$color-bg;
+  }
+}

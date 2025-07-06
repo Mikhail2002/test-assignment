@@ -1,0 +1,13 @@
+<div class="historical-trend">
+  <h4 class="title">Historical Trend</h4>
+  <div class="value">
+    <div class="graph-container">
+    <svg [attr.width]="width" [attr.height]="height" class="graph-svg">
+      <path [attr.d]="pathD" stroke="#007bff" fill="none" stroke-width="4"/>
+    </svg>
+    <div class="labels">
+      <div class="label" *ngFor="let label of labels">{{ label }}</div>
+    </div>
+  </div>
+  </div>
+</div>

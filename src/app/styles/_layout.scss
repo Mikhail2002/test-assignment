@@ -1,0 +1,16 @@
+@use 'variables' as vars;
+@use 'mixins' as mix;
+
+.page-container{
+  @include mix.flex-container(column, flex-start);
+  width: 100%;
+  min-height: 100vh;
+  background-color: vars.$color-bg;
+  padding-inline: clamp(24px, 8vw, 130px);
+  padding-bottom: 75px;
+  
+  color: vars.$color-text;
+  h2 {
+    font-family: vars.$font-family-title;
+  }
+}

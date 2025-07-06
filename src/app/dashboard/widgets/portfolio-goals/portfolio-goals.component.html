@@ -1,1 +1,77 @@
-<p>portfolio-goals works!</p>
+<div class="portfolio-goals">
+  <h2 class="portfolio-goals__title">Portfolio goals</h2>
+  <div class="loss-ratio">
+    <h3 class="loss-ratio__title">Portfolio loss ratio target</h3>
+    <div class="loss-ratio__bar-container">
+      <div class="loss-ratio__bar">
+        <div class="loss-ratio__bar-segment loss-ratio__bar-segment--green" [style.width.%]="greenRatio"></div>
+        <div class="loss-ratio__bar-segment loss-ratio__bar-segment--yellow" [style.width.%]="yellowRatio"></div>
+        <div class="loss-ratio__bar-segment loss-ratio__bar-segment--red" [style.width.%]="redRatio"></div>
+      </div>
+      <div class="loss-ratio__marker-tg" [style.left.%]="tgRatio">
+        <div class="loss-ratio__marker-tg-label">TG:{{tgRatio}}%</div>
+        <svg class="loss-ratio__marker-tg-arrow" width="17" height="11" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.699946 4.09601L6.82995 10.3C7.04995 10.522 7.30997 10.698 7.59997 10.818C7.88997 10.938 8.18999 11 8.5 11C8.81 11 9.12003 10.938 9.41003 10.818C9.69003 10.698 9.95004 10.522 10.17 10.3L16.3 4.09601C17.8 2.58701 16.73 0 14.62 0H2.35998C0.24998 0 -0.790054 2.58701 0.699946 4.09601Z" fill="#3B82F6"/>
+        </svg>
+      </div>
+      <div class="loss-ratio__marker-current" [style.left.%]="currentRatio">
+        <div class="loss-ratio__marker-current-percent">{{currentRatio}}%</div>
+        <svg class="loss-ratio__marker-current-arrow" width="17" height="11" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16.3 6.90399L10.17 0.700012C9.95003 0.478012 9.69001 0.302007 9.40001 0.182007C9.11001 0.0620068 8.80999 0 8.49998 0C8.18998 0 7.87995 0.0620068 7.58995 0.182007C7.30995 0.302007 7.04994 0.478012 6.82994 0.700012L0.699936 6.90399C-0.800064 8.41299 0.26999 11 2.37999 11H14.64C16.75 11 17.79 8.41299 16.3 6.90399Z" fill="#3BB979"/>
+        </svg>
+        <div class="loss-ratio__marker-current-label">-6.8% (GOOD)</div>
+      </div>
+    </div>
+  </div>
+  <div class="renewal-retention">
+    <h3 class="renewal-retention__title">Renewal retention</h3>
+    <div class="renewal-retention__bar-container">
+      <div class="renewal-retention__bar">
+        <div class="renewal-retention__bar-segment renewal-retention__bar-segment--red" [style.width.%]="redRetention"></div>
+        <div class="renewal-retention__bar-segment renewal-retention__bar-segment--yellow" [style.width.%]="yellowRetention"></div>
+        <div class="renewal-retention__bar-segment renewal-retention__bar-segment--green" [style.width.%]="greenRetention"></div>
+        <div class="renewal-retention__bar-segment renewal-retention__bar-segment--yellow" [style.width.%]="yellowRetention"></div>
+      </div>
+      <div class="renewal-retention__marker-tg" [style.left.%]="tgRetention">
+        <div class="renewal-retention__marker-tg-label">TG:57-62%</div>
+      </div>
+      <div class="renewal-retention__marker-current" [style.left.%]="currentRetention">
+        <div class="renewal-retention__marker-current-percent">{{currentRetention}}%</div>
+        <svg class="renewal-retention__marker-current-arrow" width="17" height="11" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16.3 6.90399L10.17 0.700012C9.95003 0.478012 9.69001 0.302007 9.40001 0.182007C9.11001 0.0620068 8.80999 0 8.49998 0C8.18998 0 7.87995 0.0620068 7.58995 0.182007C7.30995 0.302007 7.04994 0.478012 6.82994 0.700012L0.699936 6.90399C-0.800064 8.41299 0.26999 11 2.37999 11H14.64C16.75 11 17.79 8.41299 16.3 6.90399Z" fill="#3BB979"/>
+        </svg>
+        <div class="renewal-retention__marker-current-label">ON TARGET</div>
+      </div>
+    </div>
+  </div>
+  <div class="business-target">
+    <h3 class="business-target__title">New business target</h3>
+    <div class="business-target__bar-wrapper">
+      <div class="business-target__bar-container">
+        <div class="business-target__bar">
+          <div class="business-target__bar-filling" [style.width.%]="businessTargetCurrentPercent"></div>
+        </div>
+        <div class="business-target__marker" [style.left.%]="businessTargetCurrentPercent">
+          <div class="business-target__marker-label">${{businessTargetCurrent}}M</div>
+          <div class="business-target__marker-percent">{{businessTargetCurrentPercent}}%</div>
+        </div>
+      </div>
+      <div class="business-target__goal">${{businessTargetGoal}}M</div>
+    </div>
+  </div>
+  <div class="gwp-target">
+    <h3 class="gwp-target__title">Annual GWP target</h3>
+    <div class="gwp-target__bar-wrapper">
+      <div class="gwp-target__bar-container">
+        <div class="gwp-target__bar">
+          <div class="gwp-target__bar-filling" [style.width.%]="gwpTargetCurrentPercent"></div>
+        </div>
+        <div class="gwp-target__marker" [style.left.%]="businessTargetCurrentPercent">
+          <div class="gwp-target__marker-label">${{gwpTargetCurrent}}M</div>
+          <div class="gwp-target__marker-percent">{{gwpTargetCurrentPercent}}%</div>
+        </div>
+      </div>
+      <div class="gwp-target__goal">${{gwpTargetGoal}}M</div>
+    </div>
+  </div>
+</div>

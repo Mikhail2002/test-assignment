@@ -1,0 +1,114 @@
+@use "variables" as vars;
+@use "mixins" as mix;
+@use "buttons" as btn;
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.communication{
+  @include mix.flex-container(column);
+  height: max-content;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$widgets-border-radius;
+  background-color: vars.$color-widget-primary;
+
+  padding: vars.$widgets-padding;
+  row-gap: 20px;
+}
+
+.header{
+  @include mix.flex-container(row);
+  column-gap: 10px;
+  &__search{
+    height: 28px;
+    width: 237px;
+    padding-left: 16px;
+    font-size: 1rem;
+    border-radius: 25px;
+    border: 1px solid vars.$color-input-field;
+    
+    
+    &::placeholder{
+      color: #59627580;
+    }
+  }
+}
+
+.header-btn{
+  @include btn.btn-secondary(3px 0px);
+  font-size: 15px;
+  width: 95px;
+}
+
+.reply-btn{
+  @include btn.btn-primary(10px 36px);
+  width: max-content;
+}
+
+.messages-masonry{
+  padding: 10px;
+  column-count: 2;
+}
+
+.message{
+  @include mix.flex-container(column, flex-start);
+  border: none;
+  break-inside: avoid;
+  border-radius: vars.$widgets-border-radius;
+  background-color: vars.$color-widget-secondary;
+  padding: vars.$widgets-padding;
+  margin-bottom: 20px;
+
+  &.new{
+    border: 1px solid vars.$color-primary;
+  }
+
+  &__header{
+    @include mix.flex-container(column);
+    row-gap: 10px;
+  }
+
+  &__title{
+    @include mix.flex-container(row, flex-start, center);
+    column-gap: 8px;
+    font-size: 22px;
+  }
+
+  &__status{
+    @include mix.flex-container(row, center, center);
+    background-color: vars.$color-blue-secondary;
+    border-radius: 50px;
+    padding: 5px 15px;
+    font-size: 15px;
+    margin-left: -2px;
+  }
+
+  &__sender-date{
+    font-size: 18px;
+    color: vars.$color-text-subtext;
+  }
+
+  &__body{
+    @include mix.flex-container(column);
+    row-gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  &__text{
+    margin-top: 10px;
+    font-size: 18px;
+  }
+
+  &__attachments{
+    @include mix.flex-container(row, center, center);
+    background-color: #3BB97966;
+    width: max-content;
+    border-radius: 50px;
+    padding: 5px 15px;
+    font-size: 15px;
+    column-gap: 10px;
+  }
+}

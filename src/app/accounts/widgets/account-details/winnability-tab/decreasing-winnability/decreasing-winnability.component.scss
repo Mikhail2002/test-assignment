@@ -1,0 +1,66 @@
+@use "variables" as vars;
+@use "mixins" as mix;
+@use "buttons" as btn;
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.decreasing-winnability{
+  @include mix.flex-container(column, flex-start);
+  height: 100%;
+  border: none;
+  border-radius: vars.$widgets-border-radius;
+
+  background-color: vars.$color-widget-secondary;
+  padding: vars.$widgets-padding;
+  row-gap: 40px;
+
+  .title{
+    @include mix.flex-container(row, flex-start, center);
+    font-size: 26px;
+    column-gap: 10px;
+  }
+
+  .values{
+    @include mix.flex-container(column);
+    row-gap: 23px;
+  }
+}
+
+.value-wrapper{
+  @include mix.flex-container(row, flex-start, flex-end);
+  font-size: 18px;
+
+  .number{
+    @include mix.flex-container(column, center, center);
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    border: 1px solid vars.$color-yellow;
+    margin-right: 10px;
+    color: vars.$color-yellow;
+  }
+
+  .bar-wrapper{
+    @include mix.flex-container(column);
+    row-gap: 3px;
+  }
+
+  
+}
+
+.bar-container{
+  @include mix.flex-container(row);
+  column-gap: 15px;
+  color: vars.$color-text-subtext;
+}
+
+.bar-filling{
+  background: linear-gradient(to left, #FDD261FF 0%, #FDD26100 100%);
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  height: 22px;
+}

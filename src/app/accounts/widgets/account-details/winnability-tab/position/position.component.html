@@ -1,0 +1,23 @@
+<div class="position">
+  <h4 class="title">Position</h4>
+  <div class="values">
+    <div class="value-wrapper">
+      <div class="bar">
+        <div class="bar-filling" [style.width.%]="values.yourScore"></div>
+      </div>
+      <p class="value">Your Score: {{values.yourScore}}%</p>
+    </div>
+    <div class="value-wrapper market-avg">
+      <div class="bar">
+        <div class="bar-filling" [style.width.%]="values.marketAvg"></div>
+      </div>
+      <p class="value">Market Avg: {{values.marketAvg}}%</p>
+    </div>
+    <div class="value-wrapper top-companies">
+      <div class="bar">
+        <div class="bar-filling" [style.width.%]="values.topCompetitor"></div>
+      </div>
+      <p class="value">Top competitor: {{values.topCompetitor}}%</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+@use 'variables' as vars;
+
+$primary-color: vars.$color-primary;
+$secondary-color: transparent;
+
+$button-border-radius: 25px;
+
+@mixin button($background-color, $color) {
+  display: inline-block;
+  border-radius: $button-border-radius;
+  color: $color;
+  background-color: $background-color;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+@mixin btn-primary($padding: $button-padding) {
+  @include button($primary-color, white);
+  padding: $padding;
+}
+
+@mixin btn-secondary(
+  $padding: $button-padding,
+  $color: $primary-color,
+  $border-color: $primary-color
+) {
+  @include button($secondary-color, $color);
+  padding: $padding;
+  color: $color;
+  border-style: solid;
+  border-width: 1px;
+  border-color: $border-color;
+}
+
+@mixin tab ($padding: $button-padding){
+  @include button(vars.$color-tabs-bg, $primary-color);
+  padding: $padding;
+  border-color: vars.$color-border;
+  color: vars.$color-tab-text;
+
+  &.active{
+    background-color: vars.$color-primary; 
+    color: vars.$color-white;
+
+    .icon > path{
+      stroke: #FFF;
+    }
+  }
+}

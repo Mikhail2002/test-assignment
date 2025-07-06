@@ -1,0 +1,44 @@
+@use "variables" as vars;
+@use "mixins" as mix;
+@use "buttons" as btn;
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.account-status{
+  @include mix.flex-container(column);
+  height: 100%;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$widgets-border-radius;
+  background-color: vars.$color-widget-primary;
+
+  padding: vars.$widgets-padding;
+  padding-inline: 10px;
+  padding-top: 65px;
+  position: relative;
+}
+
+.line{
+  @include mix.flex-container(row, flex-start, center);
+  column-gap: 35px;
+  padding-right: 95px;
+  padding-left: 92px;
+}
+
+.statuses{
+  @include mix.flex-container(row);
+  position: absolute;
+  top: 47px;
+}
+
+.check-mark-container{
+  @include mix.flex-container(column, flex-start, center);
+  font-size: 24px;
+  column-gap: 50px;
+  width: 145px;
+  row-gap: 10px;
+}
+

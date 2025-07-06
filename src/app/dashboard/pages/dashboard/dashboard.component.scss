@@ -1,0 +1,21 @@
+@use 'variables' as vars;
+@use 'mixins' as mix;
+@use 'breakpoints' as breakpoints;
+
+
+.page-grid{
+  @include mix.grid-container(3, 15px, 30px, 1035px 285px 285px);
+}
+
+.column-1{
+  grid-column: 1035px;
+}
+
+.column-3{
+  @include mix.flex-container(column);
+  row-gap: 10px;
+}
+
+.full-width{
+  grid-column: 1 / span 3;
+}

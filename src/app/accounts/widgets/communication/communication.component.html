@@ -1,0 +1,50 @@
+<div class="communication">
+  <div class="header">
+    <input type="text" placeholder="Search" class="header__search" />
+    <button class="header-btn">Filter</button>
+    <button class="header-btn">Group</button>
+  </div>
+  <div class="messages-masonry">
+    <div
+      class="message"
+      *ngFor="let message of messages"
+      [ngClass]="{ new: message.status === 'NEW' }"
+    >
+      <div class="message__header">
+        <h3 class="message__title">
+          <div class="message__status" *ngIf="message.status !== 'none'">
+            {{ message.status }}
+          </div>
+          {{ message.title }}
+        </h3>
+        <p class="message__sender-date">
+          {{ message.sender }} // {{ message.date }}
+        </p>
+      </div>
+      <div class="message__body">
+        <p class="message__text">{{ message.text }}</p>
+        <div class="message__attachments" *ngIf="message.attachments > 0">
+          <svg
+            width="13"
+            height="16"
+            viewBox="0 0 13 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.55053 13.5L12.4714 8.19995M9.3033 4L3.97182 9.71997C3.73419 9.96997 3.60017 10.3099 3.60017 10.6699C3.60017 11.0199 3.73419 11.3601 3.97182 11.6101C4.20945 11.8601 4.53167 12 4.86721 12C5.20369 12 5.52591 11.8601 5.76354 11.6101L11.095 5.88989C11.5703 5.38989 11.8374 4.71 11.8374 4C11.8374 3.29 11.5703 2.61011 11.095 2.11011C10.6198 1.61011 9.97531 1.33008 9.3033 1.33008C8.63128 1.33008 7.98681 1.61011 7.51155 2.11011L2.17913 7.84009C1.46529 8.59009 1.06512 9.60992 1.06512 10.6699C1.06512 11.7299 1.46529 12.75 2.17913 13.5C2.89202 14.25 3.85871 14.6699 4.86721 14.6699C5.87571 14.6699 6.84334 14.25 7.55623 13.5"
+              stroke="#E5E7EB"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          {{ message.attachments }} attachments
+        </div>
+      </div>
+      <button class="reply-btn" *ngIf="message.status !== 'Responded'">
+        Reply
+      </button>
+    </div>
+  </div>
+</div>

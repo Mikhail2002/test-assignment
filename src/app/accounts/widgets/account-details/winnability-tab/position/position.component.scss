@@ -1,0 +1,56 @@
+@use "variables" as vars;
+@use "mixins" as mix;
+@use "buttons" as btn;
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.position{
+  @include mix.flex-container(column, flex-start);
+  height: 100%;
+  border: none;
+  border-radius: vars.$widgets-border-radius;
+
+  background-color: vars.$color-widget-secondary;
+  padding: vars.$widgets-padding;
+  row-gap: 10px;
+
+  .title{
+    font-size: 26px;
+  }
+}
+
+.values{
+  @include mix.flex-container(column);
+  row-gap: 5px;
+}
+
+.value-wrapper{
+  @include mix.flex-container(row, flex-start, center);
+  column-gap: 10px;
+  font-size: 18px;
+}
+
+.market-avg, 
+.top-companies{
+  color: vars.$color-text-subtext;
+}
+
+.bar{
+  @include mix.flex-container(row);
+  height: 22px;
+  width: 54%;
+  border-top-right-radius: btn.$button-border-radius;
+  border-bottom-right-radius: btn.$button-border-radius;
+  overflow: hidden;
+  background-color: #313853;
+}
+
+.bar-filling{
+  background: linear-gradient(to left, #3B82F6FF 0%, #3B82F600 100%);
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}

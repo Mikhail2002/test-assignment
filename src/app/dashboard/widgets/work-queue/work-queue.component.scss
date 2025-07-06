@@ -1,0 +1,105 @@
+@use "variables" as vars;
+@use "mixins" as mix;
+@use "buttons" as btn;
+
+:host{
+  display: block;
+  height: 100%;
+}
+
+.work-queue {
+  @include mix.flex-container(column, flex-start);
+  width: 1035px;
+  height: 100%;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$widgets-border-radius;
+  padding: vars.$widgets-padding;
+  row-gap: 20px;
+
+  color: vars.$color-text;
+  background-color: vars.$color-widget-primary;
+  font-family: vars.$font-family-title;
+
+  &__tablist{
+    @include mix.flex-container(row, flex-start);
+    column-gap: 10px;
+    button{
+      @include btn.tab(6px 17px);
+      border: none;
+    }
+  }
+
+  &__table{
+    border-collapse: collapse;
+    font-family: vars.$font-family-title;
+    thead{
+      background-color: vars.$color-widget-secondary;
+      font-size: 13px;
+      
+      color: vars.$color-text-secondary;
+
+      tr > th{
+        font-weight: 400;
+        padding-block: 7px;
+        padding-inline: 17px;
+        text-align: left;
+      }
+    
+    }
+
+    tbody tr:nth-child(even){
+      background-color: vars.$color-table-row;
+      border-block: 1px solid #293245;
+    }
+  }
+}
+
+.cell{
+  font-family: vars.$font-family-base;
+  font-size: 17px;
+  font-weight: 300;
+  padding-block: 10px;
+  padding-inline: 17px;
+
+  &--originator{
+    @include mix.flex-container(row, flex-start, center);
+    column-gap: 5px;
+  }
+
+  &--status{
+    font-size: 15px;
+  }
+
+  .line{
+    color: vars.$color-text-secondary;
+    font-size: 16px;
+  }
+}
+
+.avatar{
+  @include mix.avatar();
+  font-family: vars.$font-family-base;
+  color: vars.$color-text;
+  padding-bottom: 2px;
+}
+
+.status-indicator{
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+
+  &.new {
+    background-color: vars.$color-primary; 
+  }
+
+  &.pending-review {
+    background-color: vars.$color-yellow; 
+  }
+
+  &.completed {
+    background-color: vars.$color-green; 
+  }
+}

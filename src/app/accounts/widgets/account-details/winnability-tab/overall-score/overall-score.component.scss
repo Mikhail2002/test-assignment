@@ -1,0 +1,59 @@
+@use "variables" as vars;
+@use "mixins" as mix;
+@use "buttons" as btn;
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.overall-score{
+  @include mix.flex-container(column, flex-start);
+  height: 100%;
+  border: none;
+  border-radius: vars.$widgets-border-radius;
+
+  background-color: vars.$color-widget-secondary;
+  padding: vars.$widgets-padding;
+  row-gap: 10px;
+
+  .title{
+    font-size: 26px;
+  }
+}
+
+.value{
+  @include mix.flex-container(row, flex-start, center);
+  column-gap: 10px;
+  
+  &__percent{
+    font-size: 52px;
+  }
+
+  &__estimation{
+    @include mix.flex-container(row, flex-start, center);
+    width: max-content;
+    height: 39px;
+    border: 1px solid vars.$color-primary;
+    border-radius: vars.$widgets-border-radius;
+    color: vars.$color-primary;
+    padding-inline: 15px;
+    font-size: 16px;
+
+
+    & > :last-child{
+      margin-left: 5px;
+    }
+  }
+}
+
+.blue-circle{
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  vertical-align: middle;
+  background-color: vars.$color-primary;
+  margin-right: 4px;
+}

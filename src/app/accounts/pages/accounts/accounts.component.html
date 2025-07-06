@@ -1,0 +1,85 @@
+<div class="page-container">
+  <div class="account-header">
+    <div class="general-info">
+      <div class="breadcrumbs">
+        <div *ngFor="let item of breadcrumbItems; let last = last">
+          <span [ngClass]="{'breadcrumb-last': last, 'breadcrumb-item': !last}">
+            {{ item }}
+          </span>
+          <span *ngIf="!last"> //&nbsp;</span>
+        </div>
+      </div>
+      <div class="account-block">
+        <div class="account-avatar">
+          <img src="/assets/images/account-avatar.png" alt="">
+        </div>
+        <div class="account-info">
+          <h2 class="account-info__name">{{accountInfo.name}}</h2>
+          <div class="account-info__table">
+            <div class="account-info__address column">
+              <p>{{accountInfo.address}}</p>
+            </div>
+            <div class="account-info__existing-account column">
+              <h3>EXISTING ACCOUNT</h3>
+              <p>{{accountInfo.existingAccount}}</p>
+            </div>
+            <div class="account-info__broker column ">
+              <h3>BROKER</h3>
+              <p>{{accountInfo.broker}}</p>
+            </div>
+            <div class="account-info__underwriter column">
+              <h3>UNDERWRITER</h3>
+              <p>{{accountInfo.underwriter}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="needs-attention">
+      <app-needs-attention></app-needs-attention>
+    </div>
+  </div>
+  <div class="performance-metrics">
+    <h2 class="performance-metrics__title title">Performance Metrics</h2>
+    <div class="performance-metrics__grid">
+      <app-winnability></app-winnability>
+      <app-loss-ratio></app-loss-ratio>
+      <app-premium-growth></app-premium-growth>
+      <app-exposure-distribution></app-exposure-distribution>
+    </div>
+  </div>
+  <div class="policies">
+    <h2 class="policies__title title">Policies</h2>
+    <app-policies></app-policies>
+  </div>
+  <div class="account-status-wrapper">
+    <div class="account-status">
+      <h2 class="account-status__title title">Account Status</h2>
+      <div class="account-status__container">
+        <app-account-status></app-account-status>
+      </div>
+    </div>
+    <div class="compliance-and-documentation">
+      <div class="compliance-and-documentation__header">
+        <h2 class="compliance-and-documentation__title title">Compliance & Documentation</h2>
+        <a href="" class="compliance-and-documentation__link">See history &#8594;</a>
+      </div>
+      <div class="compliance-and-documentation__container">
+        <app-compliance-and-documentation></app-compliance-and-documentation>
+      </div>
+    </div>
+  </div>
+  <div class="account-details">
+    <h2 class="policies__title title">Account Details</h2>
+    <app-account-details></app-account-details>
+  </div>
+  <div class="communication">
+    <h2 class="communication__title title">Communication</h2>
+    <app-communication></app-communication>
+  </div>
+  <div class="policies-table">
+    <h2 class="policies-table__title title">Policies</h2>
+    <app-policies-table></app-policies-table>
+  </div>
+  
+</div>
