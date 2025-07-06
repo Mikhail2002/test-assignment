@@ -1,6 +1,7 @@
 @use 'variables' as vars;
 @use 'mixins' as mix;
 @use 'buttons' as btn;
+@use "breakpoints" as breakpoints;
 
 .navbar{
   @include mix.flex-container(row, flex-start, center);
@@ -10,6 +11,10 @@
   font-family: vars.$font-family-title;
   
   font-size: 1rem;
+
+  @include breakpoints.respond-max("desktop"){
+    min-width: 1850px;
+  }
 
   ul {
     @include mix.flex-container(row, flex-start, center);

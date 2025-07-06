@@ -5,6 +5,10 @@
 .page-container{
   @include mix.flex-container(column);
   row-gap: 40px;
+
+  @include breakpoints.respond-max("desktop"){
+    min-width: 1850px;
+  }
 }
 
 .account-header{
@@ -78,8 +82,11 @@
   @include mix.flex-container(column);
 
   &__grid{
-    @include mix.grid-container(4, 15px, 20px, 380px 380px 380px 460px);
-    grid-auto-rows: 240px;
+    @include mix.flex-container(row);
+    height: 240px;
+    column-gap: 15px;
+    // @include mix.grid-container(4, 15px, 20px, 380px 380px 380px 460px);
+    // grid-auto-rows: 240px;
   }
 }
 

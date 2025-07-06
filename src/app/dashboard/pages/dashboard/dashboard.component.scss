@@ -2,7 +2,11 @@
 @use 'mixins' as mix;
 @use 'breakpoints' as breakpoints;
 
-
+.page-container{
+  @include breakpoints.respond-max("desktop"){
+    min-width: 1850px;
+  }
+}
 .page-grid{
   @include mix.grid-container(3, 15px, 30px, 1035px 285px 285px);
 }

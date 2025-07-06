@@ -38,7 +38,7 @@
 .bar{
   @include mix.flex-container(row);
   height: 22px;
-  width: 54%;
+  width: 220px;
   border-top-right-radius: btn.$button-border-radius;
   border-bottom-right-radius: btn.$button-border-radius;
   overflow: hidden;
@@ -53,6 +53,7 @@
 
 .value{
   font-size: 18px;
+  white-space: nowrap;
 }
 
 .marine-cargo{

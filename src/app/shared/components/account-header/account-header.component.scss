@@ -1,5 +1,6 @@
 @use "variables" as vars;
 @use "mixins" as mix;
+@use "breakpoints" as breakpoints;
 
 .header {
   @include mix.flex-container(row, space-between, center);
@@ -11,6 +12,10 @@
 
   font-size: 1.5rem;
   color: vars.$color-text;
+
+  @include breakpoints.respond-max("desktop"){
+    min-width: 1850px;
+  }
 
   &__right {
     @include mix.flex-container(row, flex-end, center);
